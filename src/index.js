@@ -7,7 +7,7 @@ app.get('/',(req ,res)=>{
 })
 
 app.get('/LoginPage',(req ,res)=>{
-    res.send("Login Page")
+    res.send("Welcome To Login Page")
 })
 app.listen(port,()=>{
     console.log('server is up and running at: http://127.0.0.1:'+port)
