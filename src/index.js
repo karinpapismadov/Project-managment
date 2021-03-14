@@ -2,13 +2,22 @@ const express=require('express')
 const port  =process.env.PORT || 4000
 const app   =express()
 
+var path=require('path');
+
+
+
 app.get('/',(req ,res)=>{
-    res.send("Welcome To Home Page")
+    res.sendFile(path.join(__dirname)+"/HomePage.html")
 })
 
 app.get('/LoginPage',(req ,res)=>{
-    res.send("Welcome To Login Page")
+    res.sendFile(path.join(__dirname)+"/LoginPage.html")
 })
+
+app.get('/RegisterPage',(req ,res)=>{
+    res.sendFile(path.join(__dirname)+"/RegisterPage.html")
+})
+
 app.listen(port,()=>{
     console.log('server is up and running at: http://127.0.0.1:'+port)
 })
