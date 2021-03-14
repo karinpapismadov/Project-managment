@@ -1,2 +1,2 @@
 # Project-managment
-TEAM A project in project managment course.
+TEAM A project in project management course.
