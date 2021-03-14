@@ -2,8 +2,8 @@
 
 Introduction: 
 the project presented is a project of 4 group members as part of project management course in SCE college.
-the work on this project is devided into multiple sprint, 
-which in the end of each one of them we'll upsate the repository according to the product made.
+the work on this project is devided into multiple sprintד, 
+which in the end of each one of them we'll update the repository according to the product made.
  
 The group is in the process of creating a website using JavaScript language with a functioning pages.
 Each page has a different Http path.
