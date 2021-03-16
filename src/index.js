@@ -19,9 +19,6 @@ app.get('/RegisterPage',(req ,res)=>{
     res.sendFile(path.join(__dirname)+"/RegisterPage.html")
 })
 
-app.get('/HomePage',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/HomePage.html")
-})
 
 app.listen(port,()=>{
     console.log('server is up and running at: http://127.0.0.1:'+port)
