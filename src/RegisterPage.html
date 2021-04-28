@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<title>Register Page</title>
+<link rel="stylesheet"/>
+<style>
+
+    * {box-sizing: border-box}
+
+    /* Add padding to containers */
+    .container {
+        padding: 16px;
+        text-align: center;
+        background: #d7e5ff;
+    }
+
+    .selectdiv {
+        color:white;
+        width: 200px;
+        height:50px;
+        background-color: #4e67d2;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        opacity: 0.9;
+    }
+    .selectdivtext {
+        color:black;
+        width: 200px;
+        height:50px;
+        background-color: #4e67d2;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        opacity: 0.9;
+    }
+
+    .container3 {
+        padding: 5px;
+        text-align: center;
+        background: #f2f2f2;
+    }
+
+
+    label {
+        width: 50%;
+        height: 1%;
+        text-align: left;
+        padding: 12px;
+        margin: auto;
+        display: inline-block;
+        border: none;
+        opacity: 0.90;
+        font-size: 17px;
+        line-height: 20px;
+        margin-top: 20px;
+        text-decoration: none;
+    }
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 50%;
+        text-align: -moz-left;
+        padding:12px;
+        margin: auto ;
+        display: inline-block;
+        border: none;
+        background: #ffffff;
+        opacity: 0.85;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ffffff;
+        outline: none;
+        text-align: left;
+
+    }
+    .container4 {
+        padding: 20px;
+        text-align: center;
+        background: #f2f2f2;
+    }
+
+
+    /* Overwrite default styles of hr */
+    hr {
+        /*border: solid #666;*/
+        background-color: #666;
+    }
+
+    /* Set a style for the submit/register button */
+    .registerbtn {
+        background-color: #4e67d2;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+        opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+        opacity:1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
+
+
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+        background-color: #666;
+        text-align: center;
+    }
+
+
+</style>
+
+
+
+<form action="action_page.php">
+    <div class="container">
+        <h1><b>Register</b></h1>
+        <p><b>Please fill in this form to create an account.</b></p>
+    </div>
+    <hr>
+    <div class="container3">
+        <select class="selectdiv"  style="background-color:#4e67d2">
+            <option class="selectdivtext" style="background-color: white" value="null">Select user type:</option>
+            <option class="selectdivtext" style="background-color: white" value="admin">Admin</option>
+            <option class="selectdivtext" style="background-color: white" value="doctor">Doctor</option>
+            <option class="selectdivtext" style="background-color: white" value="simple user">Simple User</option>
+        </select>
+    </div>
+    <div class="container3">
+
+        <input type="text" name="firstName" id="firstName" placeholder="Enter Name" required>
+
+        <input type="text" name="lastName" id="lastName"  placeholder="Enter Last Name" required>
+
+        <input type="text" name="userName" id="userName"  placeholder="Enter User Name" required>
+
+        <input type="text" placeholder="Enter Email e.g example@mail.com " name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+
+        <input type="password" placeholder="Enter Password (8 characters minimum)" name="psw" id="psw" minlength="8" required>
+
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+
+        <label style="background-color: white"><p>Choose Your Gender :</p>
+            <input style="background-color: white" type="Radio" name="Gender" value="Male" required>Male
+            <input style="background-color: white" type="Radio" name="Gender" value="Female" required>Female
+        </label>
+
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        <button type="submit" class="registerbtn">Register</button>
+    </div>
+    <hr>
+    <div class="container signin">
+        <p>Already have an account? <a href="LoginPage">Sign in</a>.</p>
+        <p>To return to home page click here -> <a href="/">Home Page</a>.</p>
+    </div>
+
+</form>
+</html>
