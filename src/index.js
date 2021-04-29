@@ -14,15 +14,15 @@ app.use(express.static("public"));
 var path=require('path');
 
 app.get('/',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/src/HomePage.html")
+    res.sendFile(path.join(__dirname)+"/HomePage.html")
 })
 
 app.get('/LoginPage',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/src/LoginPage.html")
+    res.sendFile(path.join(__dirname)+"/LoginPage.html")
 })
 
 app.get('/RegisterPage',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/src/RegisterPage.html")
+    res.sendFile(path.join(__dirname)+"/RegisterPage.html")
    
 })
 
