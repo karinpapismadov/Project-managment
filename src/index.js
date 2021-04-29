@@ -23,7 +23,7 @@ app.get('/LoginPage',(req ,res)=>{
 
 app.get('/RegisterPage',(req ,res)=>{
     res.sendFile(path.join(__dirname)+"/src/RegisterPage.html")
-    var name= req.body.firstName;
+   
 })
 
 app.listen(port,()=>{
