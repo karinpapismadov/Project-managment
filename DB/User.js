@@ -1,6 +1,9 @@
 const mongoose= require('mongoose');
 
 const register=new mongoose.Schema({
+    selectType:{
+        type:String,
+        possibleValues:["admin", "doctor","simple user"]},
     firstName:String,
     lastName:String,
     userName:String,
@@ -12,24 +15,5 @@ const register=new mongoose.Schema({
 
 });
 
-//module.exports= User = mongoose.model('user',user);
-const User = mongoose.model("Register", register);
+const User = mongoose.model("Register&Login", register);
 module.exports = User;
-
-const data={
-    firstName:'erelle',
-    lastName:'boubli',
-    userName:'String',
-    Email:'String',
-    Password:'String',
-    Gender:'Female'
-};
-
-const newUser= new User(data);
-
-newUser.save((error)=> {
-    if (error) {
-        console.log("bad");
-    } else
-        console.log("data saved");
-});

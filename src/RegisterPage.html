@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<title>Register Page</title>
-<link rel="stylesheet"/>
+
+<head>
+    <title>Register Page</title>
+    <link rel="stylesheet"/>
+    <script src=" ../DB/User.js">
+    </script>
+</head>
+
 <style>
 
     * {box-sizing: border-box}
@@ -124,34 +130,40 @@
 </style>
 
 
-
-<form action="action_page.php">
+<form action="/RegisterPage" method="POST">
     <div class="container">
         <h1><b>Register</b></h1>
         <p><b>Please fill in this form to create an account.</b></p>
     </div>
     <hr>
     <div class="container3">
-        <select class="selectdiv"  style="background-color:#4e67d2">
-            <option class="selectdivtext" style="background-color: white" value="null">Select user type:</option>
-            <option class="selectdivtext" style="background-color: white" value="admin">Admin</option>
+        <select class="selectdiv"  id="selectType" style="background-color:#4e67d2" name="selectType" required>
+            <option class="selectdivtext" name="null" style="background-color: white" value="null">Select user type:</option>
+            <option class="selectdivtext"  style="background-color: white" value="admin" id="admin">Admin</option>
             <option class="selectdivtext" style="background-color: white" value="doctor">Doctor</option>
             <option class="selectdivtext" style="background-color: white" value="simple user">Simple User</option>
         </select>
     </div>
     <div class="container3">
+        <input type="text" id="code" name="code" placeholder="If Admin: Enter Code, Else: Enter 0" required>
 
-        <input type="text" name="firstName" id="firstName" placeholder="Enter Name" required>
+    </div>
+
+    <div class="container3">
+
+        <input type="text"  name="firstName" id="firstName" placeholder="Enter Name" required>
+
 
         <input type="text" name="lastName" id="lastName"  placeholder="Enter Last Name" required>
 
         <input type="text" name="userName" id="userName"  placeholder="Enter User Name" required>
 
-        <input type="text" placeholder="Enter Email e.g example@mail.com " name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <input type="text" placeholder="Enter Email e.g example@gmail.com " name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <span name="messageem" style="color:red"> </span>
 
-        <input type="password" placeholder="Enter Password (8 characters minimum)" name="psw" id="psw" minlength="8" required>
-
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        <input type="password" placeholder="Enter Password (Must contain at least one  number and one uppercase and lowercase letter, and at least 8)" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        <span name="message" style="color:red"> </span>
+        <input type="password" placeholder="Repeat Password" name="pswRepeat" id="psw-repeat" required>
 
         <label style="background-color: white"><p>Choose Your Gender :</p>
             <input style="background-color: white" type="Radio" name="Gender" value="Male" required>Male
@@ -159,7 +171,8 @@
         </label>
 
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" id= "submit" name="submit"  href="LoginPage" class="registerbtn">Register</button>
+
     </div>
     <hr>
     <div class="container signin">

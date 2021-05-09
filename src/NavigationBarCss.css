@@ -1,0 +1,76 @@
+.header{
+    padding: 40px;
+    text-align: left;
+    margin-bottom: -20px;
+    background: url('https://wittgreen-antinori.com/wp-content/uploads/2020/09/digitale-therapien.jpg');
+}
+body{
+    margin:0;
+    padding:0;
+    font-family:poppins;
+    background: #ffffff;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height:100vh;
+}
+
+a {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.nav-area{
+    background: #0c090a;
+}
+.nav-area:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.nav-area ul{
+    list-style: none;
+    mergin:0;
+}
+.nav-area > ul >li{
+    float: left;
+    position: relative;
+}
+.nav-area ul li a{
+    text-decoration: none;
+    color:#fff;
+    padding: 15px 20px;
+    display: block;
+}
+.nav-area ul li:hover a{
+    background: #3e4469;
+}
+.nav-area ul ul {
+    position: absolute;
+    padding: 0;
+    min-width: 190px;
+    display: none;
+    top: 100%;
+    laft: 0%;
+}
+.nav-area ul li:hover>ul{
+    display: block;
+}
+.nav-area ul ul li:hover a{
+    background: #0c090a;
+}
+.nav-area ul ul li{
+    position: relative;
+}
+.nav-area ul ul ul{
+    top: 0;
+    laft: 100%;
+}
+.nav-area ul ul ul li:hover a{
+    background: #0c090a;
+}
+.gibrish{
+    background-color: #e3ecff;
+    padding: 30px 30px;
+
+}
