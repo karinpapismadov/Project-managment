@@ -8,6 +8,9 @@ const emailVali= require('deep-email-validator');
 const alert= require('alert');
 const session = require('express-session');
 var sess;
+// eslint-disable-next-line no-undef
+config.assets.compress = true
+
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
@@ -83,7 +86,8 @@ app.post('/RegisterPage',async (req,res)=> {
                     alert("your email is invalid!");
                 else if(req.body.selectType=="admin"&& req.body.code!="1234teamA")
                     alert("code isn't right!!");
-                else {
+
+            else {
                     var registerUser = new User({
                         selectType: req.body.selectType,
                         firstName: req.body.firstName,
