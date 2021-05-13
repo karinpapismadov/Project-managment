@@ -7,10 +7,8 @@ const bodyParser=require('body-parser');
 const emailVali= require('deep-email-validator');
 const alert= require('alert');
 const session = require('express-session');
+const nodemailer= require('nodemailer');
 var sess;
-// eslint-disable-next-line no-undef
-config.assets.compress = true
-
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
@@ -27,20 +25,20 @@ app.get('/',(req ,res)=>{
     res.sendFile(path.join(__dirname)+"/HomePage.html")
 })
 
-app.get('/NavigationBarSimpleUser',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/NavigationBarSimpleUser.html")
+app.get('/SimpleUser/NavigationBarSimpleUser',(req ,res)=>{
+    res.sendFile(path.join(__dirname)+"/SimpleUser/NavigationBarSimpleUser.html")
 })
 
-app.get('/NavigationBarDoctor',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/NavigationBarDoctor.html")
+app.get('/Doctor/NavigationBarDoctor',(req ,res)=>{
+    res.sendFile(path.join(__dirname)+"/Doctor/NavigationBarDoctor.html")
 })
 
-app.get('/NavigationBarAdmin',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/NavigationBarAdmin.html")
+app.get('/Admin/NavigationBarAdmin',(req ,res)=>{
+    res.sendFile(path.join(__dirname)+"/Admin/NavigationBarAdmin.html")
 })
 
 app.get('/ProfilePageDoctorAdmin',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/ProfilePageAdmin.html")
+    res.sendFile(path.join(__dirname)+"/Admin/ProfilePageAdmin.html")
 })
 
 app.get('/LoginPage',(req ,res)=>{
@@ -86,8 +84,11 @@ app.post('/RegisterPage',async (req,res)=> {
                     alert("your email is invalid!");
                 else if(req.body.selectType=="admin"&& req.body.code!="1234teamA")
                     alert("code isn't right!!");
-
-            else {
+                else if(req.body.selectType=="doctor" && req.body.code!="doctorApproved" ){
+                    alert("your information was sent to the Admin, please wait for his approval");
+                    sendMail("reina.boubli1998@gmail.com", req.body.firstName,req.body.lastName,  req.body.email);
+                }
+                else {
                     var registerUser = new User({
                         selectType: req.body.selectType,
                         firstName: req.body.firstName,
@@ -120,11 +121,11 @@ app.post('/LoginPage',async (req,res)=> {
             sess.firstName = user.firstName;
             sess.email=user.email;
             if (user.selectType == "admin")
-                res.redirect("/NavigationBarAdmin");
+                res.redirect("/Admin/NavigationBarAdmin");
             else if (user.selectType == 'doctor')
-                res.redirect("/NavigationBarDoctor");
+                res.redirect("/Doctor/NavigationBarDoctor");
             else if (user.selectType == 'simple user')
-                res.redirect("/NavigationBarSimpleUser");
+                res.redirect("/SimpleUser/NavigationBarSimpleUser");
         }
         else{
             alert("password or username is invalid");
@@ -139,3 +140,34 @@ app.post('/LoginPage',async (req,res)=> {
 app.listen(port,()=>{
     console.log('server is up and running at: http://127.0.0.1:'+port)
 })
+
+
+// eslint-disable-next-line no-unused-vars
+function sendMail(email,name, last, DocEmail){
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'node.js.noreplay@gmail.com',
+            pass: '12345rugh'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    var mailOptions = {
+        from: 'node.js.noreplay@gmail.com',
+        to: email,
+        subject: 'Doctor '+name+" trying to register",
+        text: 'Hi Admin, the Doctor '+name+" "+last+" is trying to register with email: "+ DocEmail
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
