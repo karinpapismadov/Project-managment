@@ -35,7 +35,7 @@ app.get('/Doctor/NavigationBarDoctor',(req ,res)=>{
 
 app.get('/Admin/NavigationBarAdmin',(req ,res)=>{
     try {
-        res.sendFile(path.join(__dirname) + "/Admin/NavigationBarAdmin.html")
+        res.sendFile(path.join(__dirname) + "/Admin/NavigationBarAdmin2.html")
     }
     catch (e){
         res.send("error");
