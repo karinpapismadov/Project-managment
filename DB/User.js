@@ -1,6 +1,6 @@
-const mongoose= require('mongoose');
+var mongoose= require('mongoose');
 
-const register=new mongoose.Schema({
+var register=new mongoose.Schema({
     selectType:{
         type:String,
         possibleValues:["admin", "doctor","simple user"]},
@@ -9,11 +9,16 @@ const register=new mongoose.Schema({
     userName:String,
     Email:String,
     Password:String,
+    Clinic: String,
+    Profession:String,
+    Rating: {
+        type:Number,
+        default:0.0},
     Gender:{
         type:String,
         possibleValues:["Male", "Female"]}
 
 });
 
-const User = mongoose.model("Register&Login", register);
+var User = mongoose.model("Registers&Login", register);
 module.exports = User;

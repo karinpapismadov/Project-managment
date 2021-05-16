@@ -37,8 +37,16 @@ app.get('/Admin/NavigationBarAdmin',(req ,res)=>{
     res.sendFile(path.join(__dirname)+"/Admin/NavigationBarAdmin.html")
 })
 
-app.get('/ProfilePageDoctorAdmin',(req ,res)=>{
+app.get('/ProfilePageAdmin',(req ,res)=>{
     res.sendFile(path.join(__dirname)+"/Admin/ProfilePageAdmin.html")
+})
+
+app.get('/ProfilePageDoctor',(req ,res)=>{
+    res.sendFile(path.join(__dirname)+"/Doctor/ProfilePageDoctor.html")
+})
+
+app.get('/ProfilePageUser',(req ,res)=>{
+    res.sendFile(path.join(__dirname)+"/SimpleUser/ProfilePageUser.html")
 })
 
 app.get('/LoginPage',(req ,res)=>{
@@ -54,8 +62,14 @@ async function isEmailValid(email){
     return emailVali.validate(email);
 }
 
-app.get('/getData',(req ,res)=>{
-        res.send(sess.firstName);
+app.get('/getUser',(req ,res)=>{
+    var arr=sess.firstName+','+ sess.userName+','+sess.firstName+' ' +sess.lastName+',' +sess.email;
+    res.send(arr);
+})
+
+app.get('/getDocAd',(req ,res)=>{
+    var arr=sess.firstName+','+sess.firstName+' ' +sess.lastName+','+sess.Clinic+','+sess.email+','+sess.Profession+','+sess.Rating;
+    res.send(arr);
 })
 
 
@@ -84,6 +98,8 @@ app.post('/RegisterPage',async (req,res)=> {
                     alert("your email is invalid!");
                 else if(req.body.selectType=="admin"&& req.body.code!="1234teamA")
                     alert("code isn't right!!");
+                else if(req.body.selectType=="doctor" &&(req.body.Clinic==null || req.body.Profession==null))
+                    alert("clinic or profession is empty");
                 else if(req.body.selectType=="doctor" && req.body.code!="doctorApproved" ){
                     alert("your information was sent to the Admin, please wait for his approval");
                     sendMail("reina.boubli1998@gmail.com", req.body.firstName,req.body.lastName,  req.body.email);
@@ -96,8 +112,12 @@ app.post('/RegisterPage',async (req,res)=> {
                         userName: req.body.userName,
                         Email: req.body.email,
                         Password: req.body.psw,
-                        Gender: req.body.Gender
+                        Gender: req.body.Gender,
+                        Profession: req.body.Profession,
+                        Clinic: req.body.Clinic,
+                        Rating:req.body.Rating
                     });
+
                     registerUser.save();
                     alert("you are registered");
                     res.redirect("/LoginPage");
@@ -119,7 +139,11 @@ app.post('/LoginPage',async (req,res)=> {
             sess = req.session;
             sess.userName = req.body.username;
             sess.firstName = user.firstName;
-            sess.email=user.email;
+            sess.email=user.Email;
+            sess.lastName=user.lastName;
+            sess.Profession=user.Profession;
+            sess.Clinic=user.Clinic;
+            sess.Rating=user.Rating;
             if (user.selectType == "admin")
                 res.redirect("/Admin/NavigationBarAdmin");
             else if (user.selectType == 'doctor')
@@ -134,6 +158,8 @@ app.post('/LoginPage',async (req,res)=> {
         }
     });
 });
+
+
 
 
 
@@ -163,11 +189,12 @@ function sendMail(email,name, last, DocEmail){
         text: 'Hi Admin, the Doctor '+name+" "+last+" is trying to register with email: "+ DocEmail
     };
 
+    // eslint-disable-next-line no-unused-vars
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
             console.log(error);
         } else {
-            console.log('Email sent: ' + info.response);
+            console.log('Email sent');
         }
     });
 }
