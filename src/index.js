@@ -34,7 +34,12 @@ app.get('/Doctor/NavigationBarDoctor',(req ,res)=>{
 })
 
 app.get('/Admin/NavigationBarAdmin',(req ,res)=>{
-    res.sendFile(path.join(__dirname)+"/Admin/NavigationBarAdmin.html")
+    try {
+        res.sendFile(path.join(__dirname) + "/Admin/NavigationBarAdmin.html")
+    }
+    catch (e){
+        res.send("error");
+    }
 })
 
 app.get('/ProfilePageAdmin',(req ,res)=>{
