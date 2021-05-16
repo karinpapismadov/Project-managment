@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<style>
+    .header{
+        padding: 40px;
+        text-align: left;
+        margin-bottom: -20px;
+        background: url('https://wittgreen-antinori.com/wp-content/uploads/2020/09/digitale-therapien.jpg');
+    }
+    body{
+        margin:0;
+        padding:0;
+        font-family:poppins;
+        background: #ffffff;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height:100vh;
+    }
+
+    a {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    .nav-area{
+        background: #0c090a;
+    }
+    .nav-area:after{
+        content: '';
+        clear: both;
+        display: block;
+    }
+    .nav-area ul{
+        list-style: none;
+        mergin:0;
+    }
+    .nav-area > ul >li{
+        float: left;
+        position: relative;
+    }
+    .nav-area ul li a{
+        text-decoration: none;
+        color: #faf7f7;
+        padding: 15px 20px;
+        display: block;
+    }
+    .nav-area ul li:hover a{
+        background: #3e4469;
+    }
+    .nav-area ul ul {
+        position: absolute;
+        padding: 0;
+        min-width: 160px;
+        display: none;
+        top: 100%;
+        laft: 0%;
+    }
+    .nav-area ul li:hover>ul{
+        display: block;
+    }
+    .nav-area ul ul li:hover a{
+        background: #0c090a;
+    }
+    .nav-area ul ul li{
+        position: relative;
+    }
+    .nav-area ul ul ul{
+        top: 0;
+        laft: 100%;
+    }
+    .nav-area ul ul ul li:hover a{
+        background: #0c090a;}
+    .gibrish{
+        background-color: #e0e5ff;
+        padding: 30px 30px;
+        font-color:#e0e5ff;
+        text-line-through-color: #e0e5ff;
+    }
+
+
+    .emp-profile{
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #ffffff;
+    }
+    .profile-img{
+        text-align: center;
+    }
+    .profile-img img{
+        width: 70%;
+        height: 100%;
+    }
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: -20%;
+        width: 70%;
+        border: none;
+        border-radius: 0;
+        font-size: 15px;
+        background: #212529b8;
+    }
+    .profile-img .file input {
+        position: absolute;
+        opacity: 0;
+        right: 0;
+        top: 0;
+    }
+    .profile-head h5{
+        color: #333;
+    }
+    .profile-head h6{
+        color: #0062cc;
+    }
+    .profile-edit-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .profile-edit-mail-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .profile-edit-password-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .profile-forum-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .profile-book-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .profile-req-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .profile-meeting-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 120%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .proile-rating{
+        font-size: 12px;
+        color: #818182;
+        margin-top: 5%;
+    }
+    .proile-rating span{
+        color: #495057;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .profile-head .nav-tabs{
+        margin-bottom:5%;
+    }
+    .profile-head .nav-tabs .nav-link{
+        font-weight:600;
+        border: none;
+    }
+    .profile-head .nav-tabs .nav-link.active{
+        border: none;
+        border-bottom:2px solid #0062cc;
+    }
+    .profile-work{
+        padding: 14%;
+        margin-top: -15%;
+    }
+    .profile-work p{
+        font-size: 12px;
+        color: #818182;
+        font-weight: 600;
+        margin-top: 10%;
+    }
+    .profile-work a{
+        text-decoration: none;
+        color: #495057;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .profile-work ul{
+        list-style: none;
+    }
+    .profile-tab label{
+        font-weight: 600;
+    }
+    .profile-tab p{
+        font-weight: 600;
+        color: #0062cc;
+    }
+
+</style>
+
+<body>
+<div class="header">
+    <p style="font-size:250%">Profile</p>
+</div>
+<nav class="nav-area">
+    <ul>
+
+        <li><a herf="#">Home</a></li>
+        <li><a herf="#">My Profile</a>
+            <ul>
+                <li><a herf="#">Change Password</a></li>
+                <li><a herf="#">Update Profile Info</a></li>
+            </ul>
+        <li>
+        <li><a href="#Messages">Messages</a></li>
+        <li><a href="#MeetingSchedule">Meeting Schedule</a></li>
+        <li><a href="#Patients">Patients</a></li>
+        <li><a href="#Forums">Forums</a>
+            <ul>
+                <li><a herf="#">View Appending Forum Requests</a></li>
+                <li><a herf="#">View Existing Forums</a></li>
+            </ul>
+        </li>
+        <li><a href="#SearchForDoctors">Search For Doctors</a></li>
+        <li><a href="#Help">Help</a>
+            <ul>
+                <li><a herf="#">View Help Requests From Users</a></li>
+                <li><a herf="#">Help</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div class="gibrish">
+    <h2>.        </h2>
+    <h2>.         </h2>
+    <h2>.          </h2>
+
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5 id="name">
+                            NAME NdgjE
+                        </h5>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile">
+                    <input type="submit" class="profile-edit-mail-btn" name="btnAddMore1" value="Change Email">
+                    <input type="submit" class="profile-edit-password-btn" name="btnAddMore2" value="Change Password">
+                    <input type="submit" class="profile-book-btn" name="btnAddMore3" value="Book An Appointment">
+                    <input type="submit" class="profile-meeting-btn" name="btnAddMore4" value="Meeting Schedule">
+                    <input type="submit" class="profile-req-btn" name="btnAddMore5" value="Requests">
+                    <input type="submit" class="profile-forum-btn" name="btnAddMore6" value="Open Forum">
+
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" >
+                                    <label>Doctor's Name:</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p id="fullName">NAME NAME</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Clinic:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="Clinic">CLINIC NAME</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="email">EMAIL@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profession:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="Profession">PRO</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Ratings Rate:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="rating">00.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Experience</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Hourly Rate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>10$/hr</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Total Projects</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>230</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>English Level</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Availability</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>6 months</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            const nameList=this.responseText.split(',');
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("name").innerHTML = nameList[0];
+                document.getElementById("fullName").innerHTML = nameList[1];
+                document.getElementById("Clinic").innerHTML = nameList[2];
+                document.getElementById("email").innerHTML = nameList[3];
+                document.getElementById("Profession").innerHTML = nameList[4];
+                document.getElementById("rating").innerHTML = nameList[5];
+            }
+        };
+        xhttp.open("GET", "/getDocAd", true);
+        xhttp.send();
+
+    </script>
+    </div>
+</body>
+</html>
