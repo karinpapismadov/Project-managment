@@ -4,13 +4,17 @@ const connectDB=require('../DB/connection.js');
 const User = require('../DB/User');
 const app  =express()
 // eslint-disable-next-line no-unused-vars
-const Requests= require('../DB/User');
+const Requests= require('../DB/requestsDB');
 const bodyParser=require('body-parser');
 const emailVali= require('deep-email-validator');
 const alert= require('alert');
 const session = require('express-session');
 const nodemailer= require('nodemailer');
 var sess;
+const msg= require('../DB/chatMsgDB');
+module.exports = sess;
+const window= require('window');
+
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
@@ -20,6 +24,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(express.static(__dirname));
 app.use(express.static("public"));
+app.use(express.text());
 
 var path=require('path');
 
@@ -77,6 +82,47 @@ app.get('/getUser',(req ,res)=>{
 app.get('/getDocAd',(req ,res)=>{
     var arr=sess.firstName+','+sess.firstName+' ' +sess.lastName+','+sess.Clinic+','+sess.email+','+sess.Profession+','+sess.Rating;
     res.send(arr);
+})
+
+app.post('/MsgSystemGui', (req,res)=> {
+    Requests.find({NameSender: 'simple'}, function (err, user) {
+        if(user) {
+            for (var i=0; i<user.length;i++){
+                // eslint-disable-next-line no-unused-vars
+                var nameAdr=user[i].nameAdr;
+                // eslint-disable-next-line no-unused-vars
+                var subject=user[i].subject;
+                // eslint-disable-next-line no-unused-vars
+                var date=user[i].Date;
+                // eslint-disable-next-line no-unused-vars
+                var status=user[i].State;
+                var string= +nameAdr+" "+subject+" "+date+" "+status;
+                // req.body.ReqDetails.innerHTML="hi";
+
+            }
+
+        }
+    });
+});
+
+// eslint-disable-next-line no-unused-vars
+app.post('/MsgSystem', async(req,res)=>{
+    var msgss= new msg({
+        Text: req.body.txtMsg,
+        NameSender: sess.userName
+    });
+    msgss.save();
+            var requests = new Requests({
+                Date: Date.now(),
+                nameAdr: req.body.uname,
+                NameSender: sess.userName,
+                subject: req.body.subj,
+                message: [msgss]
+            });
+            requests.save();
+            alert("save to requests");
+
+
 })
 
 
@@ -144,7 +190,7 @@ app.post('/LoginPage',async (req,res)=> {
         }
         if (user) {
             sess = req.session;
-            sess.userName = req.body.username;
+            sess.userName = user.userName;
             sess.firstName = user.firstName;
             sess.email=user.Email;
             sess.lastName=user.lastName;
@@ -173,7 +219,6 @@ app.post('/LoginPage',async (req,res)=> {
 app.listen(port,()=>{
     console.log('server is up and running at: http://127.0.0.1:'+port)
 })
-
 
 // eslint-disable-next-line no-unused-vars
 function sendMail(email,name, last, DocEmail){

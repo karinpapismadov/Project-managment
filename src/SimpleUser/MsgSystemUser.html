@@ -70,7 +70,6 @@
 
 
 </style>
-
 <body>
 <div class="header">
     <p style="font-size:250%">Massaging System Simple User</p>
@@ -110,29 +109,69 @@
         <li><a href="#Help">Help</a></li>
     </ul>
 </nav>
-<button class="button">New Request</button>
+
+<button class="button" id="reqButton" onclick="document.getElementById('shadowing').style.display='block';
+document.getElementById('box').style.display='block';" >New Request</button>
 <div class="header-msg">
-    <h1> <pre> arrenge ->  User Name     Request Name   Date     Request Status </pre> </h1>
+    <form action="/MsgSystemGui" method="POST" src="/index.js">
+
+    <p name="ReqDetails" id="ReqDetails" value="brgfdv" >  write here </p>
+    <button class="button" onclick="func()"> Show My Requests </button>
+
+        <script>
+            function func() {
+                alert(Requests.length);
+            //     var xhttp2 = new XMLHttpRequest();
+            //     xhttp2.onreadystatechange = function () {
+            //         document.getElementById("ReqDetails").innerHTML = this.responseText;
+            //     }
+            //     xhttp2.open("GET", "/MsgSystemGui", true);
+            //     xhttp2.send();
+            }
+        </script>
+    </form>
 </div>
 
 
-<div class="msg">
-    <pre> <img src="https://static.thenounproject.com/png/3183052-200.png" alt="the profile icture" style="width:50px;height:60px;"> </pre>
+
+
+<div id="shadowing"></div>
+<form  action="/MsgSystem" method="POST">
+
+<div id="box">
+       <span id="boxclose" onClick="document.getElementById('box').style.display='none';
+       document.getElementById('shadowing').style.display='none'">close </span>
+    <div id="boxcontent">
+            <label for="uname">User Name:</label>
+            <input type="text" id="uname" name="uname"><br><br>
+            <label for="subj">Subject:</label>
+            <input type="text" id="subj" name="subj" ><br><br>
+            <label for="txtMsg">Message</label>
+            <input type="text" id="txtMsg" name="txtMsg" placeholder="Write Here"><br><br>
+            <button  id="submit" onclick="addReq()" >Submit</button>
+    </div>
 </div>
+</form>
 
-<div class="msg">
-    <pre> text   </pre>
-</div>
+<style type="text/css">
+    #shadowing{display: none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%; background-color: #CCA; z-index:10;    opacity:0.5; filter: alpha(opacity=50);}
+    #box {display: none;position: fixed;top: 20%;left: 20%;width: 60%;height: 60%;max-height:400px;padding: 0; margin:0;border: 1px solid black;background-color: white;z-index:11; overflow: hidden;}
+    #boxclose{float:right;position:absolute; top: 0; right: 0px;background-repeat:no-repeat;    background-color:#CCC; border:1px solid black; width:20px;height:20px;margin-right:0px;}
+    #boxcontent{position:absolute;top:23px;left:0;right:0;bottom:0;margin:0 0 0 0;padding: 8px;overflow: auto;width:100%;height:100%;   overflow:hidden;}
+</style>
 
-<div class="msg">
-    <pre> text   </pre>
-</div>
-
-<div class="msg">
-    <pre> text   </pre>
-</div>
-
-
+<!--<script>-->
+<!--    function addReq() {-->
+<!--         document.getElementById('box').style.display='none';-->
+<!--         document.getElementById('shadowing').style.display='none';-->
+<!--         var btn = document.createElement('DIV');-->
+<!--         btn.innerHTML = "<pre class='msg'><img src=\"https://static.thenounproject.com/png/3183052-200.png\" alt=\"the profile picture\" style=\"width:50px;height:60px;\"> " +-->
+<!--             "" +"<p id='reqDet'> </p>"-->
+<!--        "</pre>";-->
+<!--         document.body.appendChild(btn);-->
+<!--    }-->
+<!--</script>-->
+<script src="./src/index.js"> </script>
 
 </body>
 </html>

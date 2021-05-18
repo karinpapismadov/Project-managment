@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Results Doctor</title>
+    <link rel="stylesheet" href="../NavigationBarCss.css">
+    <div class="header">
+        <p style="font-size:250%">Add Test Results</p>
+    </div>
+    <nav class="nav-area">
+        <ul>
+
+            <li><a herf="#">Home</a></li>
+            <li><a herf="#">My Profile</a>
+                <ul>
+                    <li><a herf="#">Change Password</a></li>
+                    <li><a herf="#">Update Profile Info</a></li>
+                </ul>
+            <li>
+            <li><a href="#Messages">Messages</a></li>
+            <li><a href="#MeetingSchedule">Meeting Schedule</a></li>
+            <li><a href="#Patients">Patients</a></li>
+            <li><a href="#Forums">Forums</a></li>
+            <li><a href="#Help">Help</a></li>
+        </ul>
+    </nav>
+
+    </div>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Search Box | CodingLab </title>---->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #4e67d2;
+        color: white;
+    }
+
+    html {
+        font-family: sans-serif;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+    body {
+        margin: 0;
+    }
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    *:before,
+    *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins',sans-serif;
+    }
+
+    .box{
+        max-width: 400px;
+        width: 100%;
+    }
+    .box .search-box{
+        position: relative;
+        height: 50px;
+        max-width: 50px;
+        margin: auto;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+        transition: all 0.3s ease;
+
+    }
+    #check:checked ~ .search-box{
+        max-width: 380px;
+    }
+    .search-box input{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 25px;
+        background: #fff;
+        outline: none;
+        border: none;
+        padding-left: 20px;
+        font-size: 18px;
+    }
+    .search-box .icon{
+        position: absolute;
+        right: -2px;
+        top: 0;
+        width: 50px;
+        background: #FFF;
+        height: 100%;
+        text-align: center;
+        line-height: 50px;
+        color: #5d698a;
+        font-size: 20px;
+        border-radius: 25px;
+    }
+    #check:checked ~ .search-box .icon{
+        background: #5d698a;
+        color: #FFF;
+        width: 60px;
+        border-radius: 0 25px 25px 0;
+    }
+    #check{
+        display: none;
+    }
+
+    .AddTestResults{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: center;
+    }
+    .Save{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: center;
+
+    }
+
+
+
+</style>
+<body>
+<div class="TXT">
+    <div class="center">Search for patient:</div>
+</div>
+<div class="box">
+    <input type="checkbox" id="check">
+    <div class="search-box">
+        <input type="text" placeholder="Patient's name...">
+        <label for="check" class="icon">
+            <i class="fas fa-search"></i>
+        </label>
+    </div>
+</div>
+//פותח לבחור קובץ מהמחשב
+<div class="col-md-2">
+    <input type="submit" class="AddTestResults" name="btnAddMore" value="Add New Test Result">
+</div>
+
+
+//מעדכן בDB ומציג בדף של התוצאות של המשתמש שנבחר
+<div class="col-md-2">
+    <input type="submit" class="Save" name="btnAddMore" value="Save">
+</div>
+</body>
+
+</html>

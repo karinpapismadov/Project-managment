@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Medical File Prescriptions - user</title>
+    <title>Medical File - user</title>
     <link rel="stylesheet" href="../NavigationBarCss.css">
     <div class="header">
-        <p style="font-size:250%">Medical File-Prescriptions</p>
+        <p style="font-size:250%">Medical File</p>
     </div>
     <nav class="nav-area">
         <ul>
@@ -58,7 +58,14 @@
         padding: 20px 50px;
     }
 
+    footer{
+        margin-top: 10px;
+        color: #555;
+        padding: 25px;
+        font-weight: 300;
+        margin-bottom: 0;
 
+    }
     /* Style the links inside the navigation bar */
     .topnav a {
 
@@ -80,16 +87,89 @@
         background-color: #4e67d2;
         color: white;
     }
+    .TestResults{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        margin-left: 500px;
+        position: center;
+    }
+    .Prescriptions{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        margin-left: 500px;
 
+        position: center;
+    }
+    .AppointmentSumm{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        margin-left: 500px;
+
+        position: center;
+    }
+    .AppointmentHis{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: center;
+        margin-left: 500px;
+
+    }
+    .FutureApp{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: center;
+        margin-left: 500px;
+    }
 
 </style>
 <body>
-//ליצור בלולאה בהתאם לDB
-<div class="msg">
-    <pre> -prescription-   </pre>
-</div>
+<form action="/NavigationBarSimpleUser" method="post">
+   <footer>
+    <div class="col-md-2">
+        <input type="submit" class="TestResults" name="btnAddMore" value="Test Results">
+    </div>
 
+    <div class="col-md-2">
+        <input type="submit" class="Prescriptions" name="btnAddMore" value="Prescriptions">
+    </div>
 
+    <div class="col-md-2">
+        <input type="submit" class="AppointmentSumm" name="btnAddMore" value="Appointment Summery">
+    </div>
 
+    <div class="col-md-2">
+        <input type="submit" class="AppointmentHis" name="btnAddMore" value="Appointment History">
+    </div>
+
+    <div class="col-md-2">
+        <input type="submit" class="FutureApp" name="btnAddMore" value="Future Appointment">
+    </div>
+   </footer>
+</form>
 </body>
 </html>

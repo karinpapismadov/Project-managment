@@ -307,7 +307,6 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile">
                     <input type="submit" class="profile-edit-mail-btn" name="btnAddMore1" value="Change Email">
                     <input type="submit" class="profile-edit-password-btn" name="btnAddMore2" value="Change Password">
                     <input type="submit" class="profile-book-btn" name="btnAddMore3" value="Book An Appointment">
@@ -407,7 +406,6 @@
 </div>
 <script>
     var xhttp = new XMLHttpRequest();
-
     xhttp.onreadystatechange = function() {
         const nameList=this.responseText.split(',');
         if (this.readyState == 4 && this.status == 200) {
