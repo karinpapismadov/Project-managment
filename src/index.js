@@ -13,14 +13,12 @@ const nodemailer= require('nodemailer');
 var sess;
 const msg= require('../DB/chatMsgDB');
 module.exports = sess;
-const window= require('window');
-
+const fs=require('fs');
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
 connectDB();
 app.use(bodyParser.urlencoded({extended:true}));
-//app.use('/api/userModel', require('../Api/User'));
 
 app.use(express.static(__dirname));
 app.use(express.static("public"));
@@ -69,7 +67,6 @@ app.get('/RegisterPage',(req ,res)=>{
     res.sendFile(path.join(__dirname)+"/RegisterPage.html")
 })
 
-// eslint-disable-next-line no-unused-vars
 async function isEmailValid(email){
     return emailVali.validate(email);
 }
@@ -84,25 +81,43 @@ app.get('/getDocAd',(req ,res)=>{
     res.send(arr);
 })
 
-app.post('/MsgSystemGui', (req,res)=> {
+app.get('/MsgSystemGui', (req,res)=> {
     Requests.find({NameSender: 'simple'}, function (err, user) {
         if(user) {
-            for (var i=0; i<user.length;i++){
-                // eslint-disable-next-line no-unused-vars
-                var nameAdr=user[i].nameAdr;
-                // eslint-disable-next-line no-unused-vars
-                var subject=user[i].subject;
-                // eslint-disable-next-line no-unused-vars
-                var date=user[i].Date;
-                // eslint-disable-next-line no-unused-vars
-                var status=user[i].State;
-                var string= +nameAdr+" "+subject+" "+date+" "+status;
-                // req.body.ReqDetails.innerHTML="hi";
-
-            }
-
+            res.send(user.length.toString());
         }
     });
+
+
+});
+
+app.get('/', function(req,res){
+
+    Requests.find({}, (err, user) => {
+        if (err) {
+            return res.render.status(500).send('<h1>ERROR</h1>');
+        } else{
+            res.render('/MsgSystemUser',{user, Requests, req});
+        }
+    });
+});
+
+
+app.get('/MsgSystemGui2', (req,res)=> {
+    var string="";
+    var string2;
+    Requests.find({NameSender: 'simple'}, function (err, user) {
+        if(user) {
+            for(var i=0; i<user.length; i++) {
+                string2=user[i].NameSender+"  " +user[i].nameAdr+"    "+ user[i].State+"    "+ user[i].Date+"    "+ user[i].subject+"      "+"-";
+                string+=string2;
+                string2='';
+            }
+            res.send(string);
+        }
+    });
+
+
 });
 
 // eslint-disable-next-line no-unused-vars
@@ -117,7 +132,9 @@ app.post('/MsgSystem', async(req,res)=>{
                 nameAdr: req.body.uname,
                 NameSender: sess.userName,
                 subject: req.body.subj,
-                message: [msgss]
+                message: [msgss],
+                Image: sess.Image
+
             });
             requests.save();
             alert("save to requests");
@@ -168,7 +185,7 @@ app.post('/RegisterPage',async (req,res)=> {
                         Gender: req.body.Gender,
                         Profession: req.body.Profession,
                         Clinic: req.body.Clinic,
-                        Rating:req.body.Rating
+                        Rating:req.body.Rating,
                     });
 
                     registerUser.save();
@@ -197,6 +214,7 @@ app.post('/LoginPage',async (req,res)=> {
             sess.Profession=user.Profession;
             sess.Clinic=user.Clinic;
             sess.Rating=user.Rating;
+            sess.Image=user.Image;
             if (user.selectType == "admin")
                 res.redirect("/Admin/NavigationBarAdmin");
             else if (user.selectType == 'doctor')

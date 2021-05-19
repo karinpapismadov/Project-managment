@@ -16,7 +16,8 @@ var register=new mongoose.Schema({
         default:0.0},
     Gender:{
         type:String,
-        possibleValues:["Male", "Female"]}
+        possibleValues:["Male", "Female"]},
+
 
 });
 
