@@ -13,7 +13,6 @@ const nodemailer= require('nodemailer');
 var sess;
 const msg= require('../DB/chatMsgDB');
 module.exports = sess;
-const fs=require('fs');
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
 
