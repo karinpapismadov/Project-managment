@@ -125,24 +125,25 @@ app.get('/MsgSystemGui2', (req,res)=> {
 
 // eslint-disable-next-line no-unused-vars
 app.post('/SearchPost', async (req,res)=> {
-    word= req.body.search;
+    word=req.body.search;
+
 });
 
 app.get('/SearchGet', (req,res)=> {
     var string="";
     var string2;
-    User.find({userName: word}, function (err, user) {
+    User.find({$or:[{userName: word},{firstName:word}]}, function (err, user) {
         if(user) {
-            alert(word);
             alert(user);
             for(var i=0; i<user.length; i++) {
                 string2= user[i].userName+" "+user[i].firstName+" "+user[i].lastName+" "+user[i].Clinic+"-";
                 string+=string2;
                 string2='';
             }
-            res.send(string);
         }
     });
+    alert(string);
+    res.send(string);
 
 });
 
