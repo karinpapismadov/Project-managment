@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Search For Doctors - user</title>
     <link rel="stylesheet" href="../NavigationBarCss.css">
-    <form action="/NavigationBarSimpleUser" method="post"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <div class="header">
         <p style="font-size:250%">Search For Doctors</p>
     </div>
+    <nav class="nav-area">
     <nav class="nav-area">
         <ul>
             <li><a href="#">Home</a></li>
@@ -80,6 +80,7 @@
     .box{
         max-width: 400px;
         width: 100%;
+        margin-left: 100px;
     }
     .box .search-box{
         position: relative;
@@ -124,11 +125,10 @@
         width: 60px;
         border-radius: 0 25px 25px 0;
     }
-    #check{
-        display: none;
-    }
+
     .TXT{
         color: #ffffff;
+
     }
 </style>
 
@@ -137,7 +137,7 @@
     <h2>.</h2>
 </div>
 <div class="TXT1">
-    <h4 class="center">Search for doctor:</h4>
+    <h4 class="center" style="margin-left: 100px;">Search for doctor:</h4>
 </div>
 <div class="TXT">
     <h2>.</h2>
@@ -146,14 +146,24 @@
 
 
 <div class="box">
-    <input type="checkbox" id="check">
-    <div class="search-box">
-        <input type="text" placeholder="Doctor's name...">
-        <label for="check" class="icon">
-            <i class="fas fa-search"></i>
-        </label>
-    </div>
+    <input type="text" id="search" name="search" placeholder="Doctor's name">
+        <button for="check"  class="icon" onclick="func()">
+           <i class="fas fa-search"> </i>
+        </button>
 </div>
+
+<script>
+    function func() {
+        var xhttp1 = new XMLHttpRequest();
+        xhttp1.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+            }
+        };
+        xhttp1.open("GET", "/Search", true);
+        xhttp1.send();
+    }
+</script>
+
 </body>
 
 

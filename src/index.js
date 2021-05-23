@@ -105,7 +105,7 @@ app.get('/', function(req,res){
 app.get('/MsgSystemGui2', (req,res)=> {
     var string="";
     var string2;
-    Requests.find({NameSender: 'simple'}, function (err, user) {
+    Requests.find({NameSender: sess.userName}, function (err, user) {
         if(user) {
             for(var i=0; i<user.length; i++) {
                 string2=user[i].NameSender+"  " +user[i].nameAdr+"    "+ user[i].State+"    "+ user[i].Date+"    "+ user[i].subject+"      "+"-";
@@ -118,6 +118,14 @@ app.get('/MsgSystemGui2', (req,res)=> {
 
 
 });
+
+app.get('/Search', (req,res)=> {
+    alert(req.body.search);
+
+});
+
+
+
 
 // eslint-disable-next-line no-unused-vars
 app.post('/MsgSystem', async(req,res)=>{
