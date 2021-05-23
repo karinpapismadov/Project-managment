@@ -1,42 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Help Feature - Admin</title>
     <link rel="stylesheet" href="../NavigationBarCss.css">
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+    <form action="/NavigationBarAdmin" method="post"/>
+
+    <div class="header">
+        <p style="font-size:300%">Help</p>
+    </div>
+    <nav class="nav-area">
+        <ul>
+
+            <li><a herf="#">Home</a></li>
+            <li><a herf="#">My Profile</a>
+                <ul>
+                    <li><a herf="#">Change Password</a></li>
+                    <li><a herf="#">Update Profile Info</a></li>
+                </ul>
+            <li>
+            <li><a href="#Messages">Messages</a></li>
+            <li><a href="#MeetingSchedule">Meeting Schedule</a></li>
+            <li><a href="#Patients">Patients</a></li>
+            <li><a href="#Forums">Forums</a>
+                <ul>
+                    <li><a herf="#">View Appending Forum Requests</a></li>
+                    <li><a herf="#">View Existing Forums</a></li>
+                </ul>
+            </li>
+            <li><a href="#SearchForDoctors">Search For Doctors</a></li>
+            <li><a href="#Help">Help</a>
+                <ul>
+                    <li><a herf="#">View Help Requests From Users</a></li>
+                    <li><a herf="#">Help</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    </div>
 </head>
 
-<body>
-<div class="header">
-    <p style="font-size:300%">Help Feature Admin</p>
-</div>
-<nav class="nav-area">
-    <ul>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-        <li><a herf="#">Home</a></li>
-        <li><a herf="#">My Profile</a>
-            <ul>
-                <li><a herf="#">Change Password</a></li>
-                <li><a herf="#">Update Profile Info</a></li>
-            </ul>
-        <li>
-        <li><a href="#Messages">Messages</a></li>
-        <li><a href="#MeetingSchedule">Meeting Schedule</a></li>
-        <li><a href="#Patients">Patients</a></li>
-        <li><a href="#Forums">Forums</a>
-            <ul>
-                <li><a herf="#">View Appending Forum Requests</a></li>
-                <li><a herf="#">View Existing Forums</a></li>
-            </ul>
-        </li>
-        <li><a href="#SearchForDoctors">Search For Doctors</a></li>
-        <li><a href="#Help">Help</a>
-            <ul>
-                <li><a herf="#">View Help Requests From Users</a></li>
-                <li><a herf="#">Help</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+    body {
+        background: #f2f2f2;
+        font-family: 'Open Sans', sans-serif;
+    }
+    @import url('https://fonts.googleapis.com/css?family=Hind:300,400');
+    *, *:before, *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Hind', sans-serif;
+        background: #fff;
+        color: #4d5974;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        min-height: 100vh;
+    }
+    .container {
+        margin: 0 auto;
+        padding: 4rem;
+        width: 48rem;
+    }
+    h3 {
+        font-size: 1.75rem;
+        color: #373d51;
+        padding: 1.3rem;
+        margin: 0;
+    }
+    .accordion a {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 3rem 1rem 1rem;
+        color: #7288a2;
+        font-size: 1.15rem;
+        font-weight: 400;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .accordion a:hover,
+    .accordion a:hover::after {
+        cursor: pointer;
+        color: #6aa0bc;
+    }
+    .accordion a:hover::after {
+        border: 1px solid #6aa0bc;
+    }
+    .accordion a.active {
+        color: #6aa0bc;
+        border-bottom: 1px solid #6aa0bc;
+    }
+    .accordion a::after {
+        font-family: 'Ionicons';
+        content: '\f218';
+        position: absolute;
+        float: right;
+        right: 1rem;
+        font-size: 1rem;
+        color: #7288a2;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        border: 1px solid #7288a2;
+        text-align: center;
+    }
+    .accordion a.active::after {
+        font-family: 'Ionicons';
+        content: '\f209';
+        color: #6aa0bc;
+        border: 1px solid #6aa0bc;
+    }
+    .accordion .content {
+        opacity: 0;
+        padding: 0 1rem;
+        max-height: 0;
+        border-bottom: 1px solid #e5e5e5;
+        overflow: hidden;
+        clear: both;
+        -webkit-transition: all 0.2s ease 0.15s;
+        -o-transition: all 0.2s ease 0.15s;
+        transition: all 0.2s ease 0.15s;
+    }
+    .accordion .content p {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    .accordion .content.active {
+        opacity: 1;
+        padding: 1rem;
+        max-height: 100%;
+        -webkit-transition: all 0.35s ease 0.15s;
+        -o-transition: all 0.35s ease 0.15s;
+        transition: all 0.35s ease 0.15s;
+    }
+</style>
+
+<body>
+
+<div class="container">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="accordion">
+        <div class="accordion-item">
+            <a>How can I make an appointment using the site??</a>
+            <div class="content">
+                <p>In order to make an appointment simply click on the "Appointment booking" button under "Online services" on the navigation bar at the top of the page.//////////////</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <a>How can I send a message to a doctor via the site?</a>
+            <div class="content">
+                <p>//////////////////////////////////////////////.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <a>How do I change the password of my account?</a>
+            <div class="content">
+                <p>/////////////////////////</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <a>How can I watch my medical file content?</a>
+            <div class="content">
+                <p>/////////////////////////////////.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <a>What can I do in a forum?</a>
+            <div class="content">
+                <p>////////////////.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <a>How can I write a review about a certain doctor in the clinic?</a>
+            <div class="content">
+                <p>////////////////.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script  src="function.js"></script>
 
 </body>
+<script>
+    const items = document.querySelectorAll(".accordion a");
+
+    function toggleAccordion(){
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('active');
+    }
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+</script>
+
 </html>
