@@ -153,26 +153,30 @@
     <h2>.</h2>
 </div>
 
-
+<form action="/SearchPost" method="post">
 <div class="box">
     <input type="text" id="search" name="search" placeholder="Doctor's name">
     <button for="search"  class="icon" onclick="func()">
            <i class="fas fa-search"> </i>
         </button>
 </div>
+</form>
 
 <script>
     function func() {
+
         var array;
         var xhttp5 = new XMLHttpRequest();
+
         xhttp5.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 array=this.responseText.split('-');
-                for(var i=0; i<array.length;i++){
+                for(var i=0; i<array.length; i++){
+                    alert(array[i]);
                 }
             }
         };
-        xhttp5.open("GET", "/Search", true);
+        xhttp5.open("GET", "/SearchGet", true);
         xhttp5.send();
     }
 </script>

@@ -12,6 +12,7 @@ const session = require('express-session');
 const nodemailer= require('nodemailer');
 var sess;
 const msg= require('../DB/chatMsgDB');
+var word;
 module.exports = sess;
 
 app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
@@ -119,21 +120,30 @@ app.get('/MsgSystemGui2', (req,res)=> {
 
 });
 
-app.get('/Search', (req,res)=> {
+
+
+
+// eslint-disable-next-line no-unused-vars
+app.post('/SearchPost', async (req,res)=> {
+    word= req.body.search;
+});
+
+app.get('/SearchGet', (req,res)=> {
     var string="";
     var string2;
-    alert(req.body.search);
-    User.find({userName: req.body.search}, function (err, user) {
-        if (user) {
-            for (var i = 0; i < user.length; i++) {
+    User.find({userName: word}, function (err, user) {
+        if(user) {
+            alert(word);
+            alert(user);
+            for(var i=0; i<user.length; i++) {
                 string2= user[i].userName+" "+user[i].firstName+" "+user[i].lastName+" "+user[i].Clinic+"-";
                 string+=string2;
                 string2='';
             }
             res.send(string);
         }
-
     });
+
 });
 
 
