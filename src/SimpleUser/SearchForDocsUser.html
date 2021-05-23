@@ -6,11 +6,10 @@
     <link rel="stylesheet" href="../NavigationBarCss.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="src/index.js"></script>
     <div class="header">
         <p style="font-size:250%">Search For Doctors</p>
     </div>
-    <nav class="nav-area">
     <nav class="nav-area">
         <ul>
             <li><a href="#">Home</a></li>
@@ -125,14 +124,24 @@
         width: 60px;
         border-radius: 0 25px 25px 0;
     }
-
+    .msg{
+        background-color: #a8bbdd;
+        color: white;
+        font-size: 18px;
+        display: block;
+        border: 1.7px solid black;
+        margin: 10px 90px;
+        padding: 20px 50px;
+    }
     .TXT{
         color: #ffffff;
 
     }
 </style>
 
+
 <body>
+
 <div class="TXT">
     <h2>.</h2>
 </div>
@@ -147,24 +156,27 @@
 
 <div class="box">
     <input type="text" id="search" name="search" placeholder="Doctor's name">
-        <button for="check"  class="icon" onclick="func()">
+    <button for="search"  class="icon" onclick="func()">
            <i class="fas fa-search"> </i>
         </button>
 </div>
 
 <script>
     function func() {
-        var xhttp1 = new XMLHttpRequest();
-        xhttp1.onreadystatechange = function () {
+        var array;
+        var xhttp5 = new XMLHttpRequest();
+        xhttp5.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                array=this.responseText.split('-');
+                for(var i=0; i<array.length;i++){
+                }
             }
         };
-        xhttp1.open("GET", "/Search", true);
-        xhttp1.send();
+        xhttp5.open("GET", "/Search", true);
+        xhttp5.send();
     }
 </script>
 
 </body>
-
 
 </html>

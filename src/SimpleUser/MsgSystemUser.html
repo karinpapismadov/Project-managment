@@ -110,11 +110,17 @@
     </ul>
 </nav>
 
-<button class="button" id="reqButton" onclick="document.getElementById('shadowing').style.display='block';
-document.getElementById('box').style.display='block';" >New Request</button>
+
 <div class="header-msg">
+    <button class="button" id="reqButton" onclick="document.getElementById('shadowing').style.display='block';
+    document.getElementById('box').style.display='block';" >New Request</button>
     <p name="ReqDetails" id="ReqDetails" > </p>
     <button class="button" onclick="func()"> Show My Requests </button>
+
+</div>
+
+<div class="header-msg">
+    <pre style="font-size: 30px; margin-left: 40px " id="header"></pre>
 </div>
 
 
@@ -168,7 +174,7 @@ document.getElementById('box').style.display='block';" >New Request</button>
                         nameReq="reqDet"+i.toString();
                         var btn = document.createElement('DIV');
                         var p="<p >" +i+"</p>"
-                        btn.innerHTML = "<pre class='msg' id='"+nameReq+"'> "+p+" </pre>";
+                        btn.innerHTML = "<pre class='msg' style='display: none;' id='"+nameReq+"'> "+p+" </pre>";
                         document.body.appendChild(btn);
                     }
             }
@@ -192,6 +198,9 @@ document.getElementById('box').style.display='block';" >New Request</button>
                 for(var i=0; i<array.length; i++){
                     nameReq="reqDet"+i.toString();
                     var button="<button"+i.toString()+" onclick='f3(this); ' style='background-color: #0c090a' id="+i.toString()+"> click here </button"+i.toString()+">";
+                    var blk="<pre>  Sender  Receiver  Status       Date              Msg </pre>"
+                    document.getElementById("header").innerHTML=blk;
+                    document.getElementById(nameReq).style.display= "block";
                     document.getElementById(nameReq).innerHTML=array[i]+"  "+button;
                 }
             }

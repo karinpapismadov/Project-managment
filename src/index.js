@@ -81,7 +81,7 @@ app.get('/getDocAd',(req ,res)=>{
 })
 
 app.get('/MsgSystemGui', (req,res)=> {
-    Requests.find({NameSender: 'simple'}, function (err, user) {
+    Requests.find({NameSender: sess.userName}, function (err, user) {
         if(user) {
             res.send(user.length.toString());
         }
@@ -120,8 +120,20 @@ app.get('/MsgSystemGui2', (req,res)=> {
 });
 
 app.get('/Search', (req,res)=> {
+    var string="";
+    var string2;
     alert(req.body.search);
+    User.find({userName: req.body.search}, function (err, user) {
+        if (user) {
+            for (var i = 0; i < user.length; i++) {
+                string2= user[i].userName+" "+user[i].firstName+" "+user[i].lastName+" "+user[i].Clinic+"-";
+                string+=string2;
+                string2='';
+            }
+            res.send(string);
+        }
 
+    });
 });
 
 
