@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search for doctors - Doctor</title>
+    <title>patients' medical file Admin</title>
     <link rel="stylesheet" href="../NavigationBarCss.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="header">
-        <p style="font-size:300%">Search For Doctors</p>
+        <p style="font-size:300%">Patients' Medical File</p>
     </div>
     <nav class="nav-area">
         <ul>
@@ -22,17 +20,30 @@
             <li><a href="#Messages">Messages</a></li>
             <li><a href="#MeetingSchedule">Meeting Schedule</a></li>
             <li><a href="#Patients">Patients</a></li>
-            <li><a href="#Forums">Forums</a></li>
-            <li><a href="#Help">Help</a></li>
+            <li><a href="#Forums">Forums</a>
+                <ul>
+                    <li><a herf="#">View Appending Forum Requests</a></li>
+                    <li><a herf="#">View Existing Forums</a></li>
+                </ul>
+            </li>
+            <li><a href="#SearchForDoctors">Search For Doctors</a></li>
+            <li><a href="#Help">Help</a>
+                <ul>
+                    <li><a herf="#">View Help Requests From Users</a></li>
+                    <li><a herf="#">Help</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
-
     </div>
 
-
-
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
+
     html {
         font-family: sans-serif;
         -webkit-text-size-adjust: 100%;
@@ -110,6 +121,18 @@
     #check{
         display: none;
     }
+
+    .show{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: center;
+        margin-left: 500px;
+    }
     .TXT{
         color: #ffffff;
     }
@@ -117,23 +140,19 @@
 
 <body>
 <div class="TXT">
-    <h2>.</h2>
-    <h2>.</h2>
-
+    <h2> .</h2>
 </div>
 <div class="TXT1">
-    <h4 class="center">Search for doctor:</h4>
+    <h4>Search for patient:</h4>
 </div>
 <div class="TXT">
-    <h2>.</h2>
-    <h2>.</h2>
+    <h2> .</h2>
+    <h2> .</h2>
 </div>
-
-
 <div class="box">
     <input type="checkbox" id="check">
     <div class="search-box">
-        <input type="text" placeholder="Doctor's name...">
+        <input type="text" placeholder="Patient's name...">
         <label for="check" class="icon">
             <i class="fas fa-search"></i>
         </label>
@@ -141,5 +160,10 @@
 </div>
 </body>
 
+<footer>
+    <div class="col-md-2">
+        <input type="submit" class="show" name="btnAddMore" value="Show patient's medical file">
+    </div>
+</footer>
 
 </html>

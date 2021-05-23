@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search for doctors - Doctor</title>
+    <title>patients' medical file Doctor</title>
     <link rel="stylesheet" href="../NavigationBarCss.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="header">
-        <p style="font-size:300%">Search For Doctors</p>
+        <p style="font-size:300%">Patients' Medical File</p>
     </div>
     <nav class="nav-area">
         <ul>
@@ -29,10 +27,34 @@
 
     </div>
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <style>
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #4e67d2;
+        color: white;
+    }
+
     html {
         font-family: sans-serif;
         -webkit-text-size-adjust: 100%;
@@ -110,30 +132,40 @@
     #check{
         display: none;
     }
+
+    .show{
+        border: none;
+        border-radius: 1.5rem;
+        width: 20%;
+        padding: 0.7%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+        position: center;
+        margin-left: 500px;
+    }
     .TXT{
         color: #ffffff;
     }
-</style>
 
+
+
+</style>
 <body>
 <div class="TXT">
-    <h2>.</h2>
-    <h2>.</h2>
-
+    <h2> .</h2>
 </div>
 <div class="TXT1">
-    <h4 class="center">Search for doctor:</h4>
+    <h4>Search for patient:</h4>
 </div>
 <div class="TXT">
-    <h2>.</h2>
-    <h2>.</h2>
+    <h2> .</h2>
+    <h2> .</h2>
 </div>
-
-
 <div class="box">
     <input type="checkbox" id="check">
     <div class="search-box">
-        <input type="text" placeholder="Doctor's name...">
+        <input type="text" placeholder="Patient's name...">
         <label for="check" class="icon">
             <i class="fas fa-search"></i>
         </label>
@@ -141,5 +173,10 @@
 </div>
 </body>
 
+<footer>
+    <div class="col-md-2">
+        <input type="submit" class="show" name="btnAddMore" value="Show patient's medical file">
+    </div>
+</footer>
 
 </html>
