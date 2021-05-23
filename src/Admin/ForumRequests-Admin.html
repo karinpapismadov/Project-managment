@@ -1,10 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <link rel="stylesheet" href="../NavigationBarCss.css">
 
+<div class="header">
+    <p style="font-size:300%">Forum Requests</p>
+</div>
+<nav class="nav-area">
+    <ul>
+
+        <li><a herf="NavigationBarAdmin.html">Home</a></li>
+        <li><a herf="ProfilePageAdmin.html">My Profile</a>
+            <ul>
+                <li><a herf="ChangePassword.html">Change Password</a></li>
+                <li><a href="ProfilePageAdmin.html" name="updateProfile">Update Profile Info</a></li>
+            </ul>
+        <li>
+        <li><a href="MsgSystemAdmin.html">Messages</a></li>
+        <li><a href="MeetingScheduleAdmin.html">Meeting Schedule</a></li>
+        <li><a href="PatientsButtonAdmin.html">Patients</a></li>
+        <li><a href="forumAdmin.html">Forums</a>
+            <ul>
+                <li><a herf="ForumRequests-Admin.html">View Appending Forum Requests</a></li>
+                <li><a herf="forumAdmin.html">View Existing Forums</a></li>
+            </ul>
+        </li>
+        <li><a href="#SearchDoctorAdmin.html">Search For Doctors</a></li>
+        <li><a href="HelpFeatureAdmin.html">Help</a>
+            <ul>
+                <li><a herf="HelpfeatureRequests-Admin.html">View Help Requests From Users</a></li>
+                <li><a herf="HelpFeatureAdmin.html">Help</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+</head>
+<style>
+    .msg{
+        background-color: #a8bbdd;
+        color: white;
+        font-size: 18px;
+        display: block;
+        border: 1.7px solid black;
+        margin: 10px 90px;
+        padding: 20px 50px;
+    }
+</style>
+<body>
+//ליצור בלולאה בהתאם לDB
+<div class="msg">
+    <input type = "checkbox">
+    <pre> -forum request-   </pre>
+</div>
 </body>
 </html>
