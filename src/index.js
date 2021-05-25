@@ -275,7 +275,7 @@ function sendMail(email,name, last, DocEmail){
         service: 'gmail',
         auth: {
             user: 'node.js.noreplay@gmail.com',
-            pass: '12345rugh'
+            pass: '12345@rugh'
         },
         tls: {
             rejectUnauthorized: false
