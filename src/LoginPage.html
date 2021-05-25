@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
     <link rel="stylesheet">
 </head>
 <style>
@@ -121,18 +126,27 @@
 
 
 <body>
+<div class="row">
+    <div class="col">
+    <h2 style="text-align:center">Login</h2>
+    </div>
+</div>
 <div class="container">
     <form action="/LoginPage" method="post">
         <div class="row">
-            <h2 style="text-align:center">Login</h2>
-                <h3 style="text-align:center">
-                    <div class="col">
-                        <input type="text" name="username" placeholder="Username"  required >
-                        <input type="password" name="password" placeholder="Password" required>
-                        <input type="submit" value="Login">
+            <div class="col">
+                    <div class="col" style="margin-left:370px">
+                        <i class="material-icons" for="uname">person</i>
+                        <input type="text" id="uname" name="username" placeholder="Username"  required >
+                        <br></br>
+                        <i class="material-icons" for="pass">lock</i>
+                        <input type="password" id="pass" name="password" placeholder="Password" required>
+                        <br></br>
+                        <i class="material-icons" for="log">login</i>
+                        <input type="submit" id="log" value="Login">
+                        </div>
                     </div>
-                </h3>
-        </div>
+            </div>
     </form>
 </div>
 
