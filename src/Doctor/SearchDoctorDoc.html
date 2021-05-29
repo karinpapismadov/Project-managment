@@ -135,5 +135,29 @@
         </label>
     </div>
 </div>
+<script>
+
+    var array;
+    var id;
+    function func1() {
+        var xhttp5 = new XMLHttpRequest();
+
+        xhttp5.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                array = this.responseText.split('-');
+                alert(array[0]);
+                for (var i = 0; i < array.length; i++) {
+
+                    id="id"+i.toString();
+                    var btn = document.createElement('DIV');
+                    btn.innerHTML = "<pre class='msg' style='display: block;' id='"+id+"'> "+array[i]+" </pre>";
+                    document.body.appendChild(btn);
+                }
+            }
+        };
+        xhttp5.open("GET", "/SearchGet", true);
+        xhttp5.send();
+    }
+</script>
 </body>
 </html>
