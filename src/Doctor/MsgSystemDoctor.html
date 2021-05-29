@@ -58,28 +58,136 @@
     </ul>
 </nav>
 
-<button class="button">New Request</button>
+
 <div class="header-msg">
-    <h1> <pre> arrenge ->  User Name     Request Name   Date     Request Status </pre> </h1>
+    <button class="button" id="reqButton" onclick="document.getElementById('shadowing').style.display='block';
+    document.getElementById('box').style.display='block';" >New Request</button>
+    <p name="ReqDetails" id="ReqDetails" > </p>
+    <button class="button" onclick="func()"> Show My Requests </button>
+
 </div>
 
-
-<div class="msg">
-    <pre> <img src="https://static.thenounproject.com/png/3183052-200.png" alt="the profile icture" style="width:50px;height:60px;"> </pre>
+<div class="header-msg">
+    <pre style="font-size: 30px; margin-left: 40px " id="header"></pre>
 </div>
 
-<div class="msg">
-    <pre> text   </pre>
-</div>
+<div id="shadowing"></div>
+<form  action="/MsgSystem" method="POST">
 
-<div class="msg">
-    <pre> text   </pre>
-</div>
+    <div id="box">
+       <span id="boxclose" onClick="document.getElementById('box').style.display='none';
+       document.getElementById('shadowing').style.display='none'">close </span>
+        <div id="boxcontent">
+            <label for="uname">User Name:</label>
+            <input type="text" id="uname" name="uname"><br><br>
+            <label for="subj">Subject:</label>
+            <input type="text" id="subj" name="subj" ><br><br>
+            <label for="txtMsg">Message</label>
+            <input type="text" id="txtMsg" name="txtMsg" placeholder="Write Here"><br><br>
+            <button  id="submit" onclick="addReq()" >Submit</button>
+        </div>
+    </div>
+</form>
 
-<div class="msg">
-    <pre> text   </pre>
-</div>
 
+<script>
+    var xhttp2 = new XMLHttpRequest();
+    var numOfReq;
+    var flag=0;
+    var flag2=0;
+    var nameReq;
+    function func() {
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                numOfReq=parseInt(this.responseText);
+                if(flag>0){
+                    if(flag2==1) {
+                        numOfReq+=1;
+                        alert(numOfReq);
+                        for (var i = 0; i < numOfReq-1; i++) {
+                            document.getElementById('reqDet' + i.toString()).remove();
+                        }
+                        flag2=0;
+                    }
+                    else if(flag2==0){
+                        for (var i = 0; i < numOfReq; i++) {
+                            document.getElementById('reqDet' + i.toString()).remove();
+                        }
+                    }
+                }
+                for(i=0; i<numOfReq;i++) {
+                    flag = 1;
+                    nameReq="reqDet"+i.toString();
+                    var btn = document.createElement('DIV');
+                    var p="<p >" +i+"</p>"
+                    btn.innerHTML = "<pre class='msg' style='display: none;' id='"+nameReq+"'> "+p+" </pre>";
+                    document.body.appendChild(btn);
+                }
+            }
+
+        }
+        xhttp2.open("GET", "/MsgSystemGui", true);
+        xhttp2.send();
+        f2();
+    }
+</script>
+
+<script>
+    var sender;
+    var receiver;
+    function f2() {
+        var xhttp3 = new XMLHttpRequest();
+        var array;
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                array = this.responseText.split('-');
+                for(var i=0; i<array.length; i++){
+                    nameReq="reqDet"+i.toString();
+                    var button="<button"+i.toString()+" onclick='f3(this); ' style='background-color: #0c090a' id="+i.toString()+"> click here </button"+i.toString()+">";
+                    var blk="<pre>  Sender  Receiver  Status       Date              Msg </pre>"
+                    document.getElementById("header").innerHTML=blk;
+                    document.getElementById(nameReq).style.display= "block";
+                    document.getElementById(nameReq).innerHTML=array[i]+"  "+button;
+                }
+            }
+        }
+        xhttp3.open("GET", "/MsgSystemGui2", true);
+        xhttp3.send();
+
+    }
+    function f3(num){
+        var tempReceiver;
+        tempReceiver= document.getElementById("reqDet"+num.id).innerText;
+        receiver=tempReceiver.split(" ")[1];
+        sender=tempReceiver.split(" ")[0];
+        Requests.find({"nameAdr": receiver, "NameSender":sender}, function (err, user) {
+            if(user) {
+                alert(user);
+            }
+            else{
+                alert("nope");
+            }
+        });
+
+    }
+</script>
+
+<style type="text/css">
+    #shadowing{display: none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%; background-color: #CCA; z-index:10;    opacity:0.5; filter: alpha(opacity=50);}
+    #box {display: none;position: fixed;top: 20%;left: 20%;width: 60%;height: 60%;max-height:400px;padding: 0; margin:0;border: 1px solid black;background-color: white;z-index:11; overflow: hidden;}
+    #boxclose{float:right;position:absolute; top: 0; right: 0px;background-repeat:no-repeat;    background-color:#CCC; border:1px solid black; width:20px;height:20px;margin-right:0px;}
+    #boxcontent{position:absolute;top:23px;left:0;right:0;bottom:0;margin:0 0 0 0;padding: 8px;overflow: auto;width:100%;height:100%;   overflow:hidden;}
+</style>
+
+<script>
+    function addReq() {
+        flag2=1;
+        document.getElementById('box').style.display='none';
+        document.getElementById('shadowing').style.display='none';
+        func();
+    }
+</script>
+<script src="./src/index.js"> </script>
 
 
 </body>
