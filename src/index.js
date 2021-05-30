@@ -102,6 +102,42 @@ app.get('/', function(req,res){
     });
 });
 
+// eslint-disable-next-line no-unused-vars
+app.post('/changePassword',(req, res) => {
+
+    var password;
+    if (req.body.newps == req.body.renewps)
+        password = req.body.newps;
+    else
+        alert("The passwords doesn't Match !");
+    User.findOne({userName: sess.userName}, function (err, user) {
+        if (user) {
+            user.Password = password;
+            user.save();
+            alert("saved!")
+        } else
+            alert("don't saved");
+    });
+    res.redirect("/ChangePassword.html");
+})
+
+app.post('/changeEmail',(req, res) => {
+
+    var email;
+    if (req.body.newmail == req.body.renewmail)
+        email = req.body.newmail;
+    else
+        alert("The email doesn't Match !");
+    User.findOne({userName: sess.userName}, function (err, user) {
+        if (user) {
+            user.Email = email;
+            user.save();
+            alert("saved!")
+        } else
+            alert("don't saved");
+    });
+    res.redirect("/ChangeEmail.html");
+})
 
 app.get('/MsgSystemGui2', (req,res)=> {
     var string="";
@@ -157,17 +193,17 @@ app.post('/MsgSystem', async(req,res)=>{
         NameSender: sess.userName
     });
     msgss.save();
-            var requests = new Requests({
-                Date: Date.now(),
-                nameAdr: req.body.uname,
-                NameSender: sess.userName,
-                subject: req.body.subj,
-                message: [msgss],
-                Image: sess.Image
+    var requests = new Requests({
+        Date: Date.now(),
+        nameAdr: req.body.uname,
+        NameSender: sess.userName,
+        subject: req.body.subj,
+        message: [msgss],
+        Image: sess.Image
 
-            });
-            requests.save();
-            alert("save to requests");
+    });
+    requests.save();
+    alert("save to requests");
 
 
 })
