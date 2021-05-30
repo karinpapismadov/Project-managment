@@ -216,159 +216,159 @@
     <h2>.</h2>
 </div>
 
-    <div class="container emp-profile">
-        <form method="post">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h5 id="name">
-                            NAME NAME
-                        </h5>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="btnnn" href="ChangeEmail.html" value="Change Email">
-                    <input type="submit" class="btnnn" name="ChangePassword.html" value="Change Password">
-                    <input type="submit" class="btnnn" name="MeetingScheduleAdmin.html" value="Meeting Schedule">
-                    <input type="submit" class="btnnn" name="MsgSystemAdmin.html" value="Requests">
-                    <input type="submit" class="btnnn" name="forumAdmin.html" value="Open Forum">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6" >
-                                    <label>Doctor's Name:</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p id="fullName">NAME NAME</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Clinic:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p id="Clinic">CLINIC NAME</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Email:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p id="email">EMAIL@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Profession:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p id="Profession">PRO</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Ratings Rate:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p id="rating">00.00</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Experience</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Expert</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Hourly Rate</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>10$/hr</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Total Projects</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>230</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>English Level</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Expert</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Availability</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>6 months</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br/>
-                                <p>Your detail description</p>
-                            </div>
-                        </div>
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file"/>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
-    <script>
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            const nameList=this.responseText.split(',');
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("name").innerHTML = nameList[0];
-                document.getElementById("fullName").innerHTML = nameList[1];
-                document.getElementById("Clinic").innerHTML = nameList[2];
-                document.getElementById("email").innerHTML = nameList[3];
-                document.getElementById("Profession").innerHTML = nameList[4];
-                document.getElementById("rating").innerHTML = nameList[5];
-            }
-        };
-        xhttp.open("GET", "/getDocAd", true);
-        xhttp.send();
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5 id="name">
+                        NAME NAME
+                    </h5>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a href="../ChangeEmail.html"><input type="submit" class="btnnn" href="ChangeEmail.html" value="Change Email"></a>
+                <a href="../ChangePassword.html"><input type="submit" class="btnnn" name="ChangePassword.html" value="Change Password"></a>
+                <a href="MeetingScheduleAdmin.html"><input type="submit" class="btnnn" name="MeetingScheduleAdmin.html" value="Meeting Schedule"></a>
+                <a href="MsgSystemAdmin.html"><input type="submit" class="btnnn" name="MsgSystemAdmin.html" value="Requests"></a>
+                <a href="forumAdmin.html"><input type="submit" class="btnnn" name="forumAdmin.html" value="Open Forum"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <label>Doctor's Name:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="fullName">NAME NAME</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Clinic:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p id="Clinic">CLINIC NAME</p>
+                        </div>
+                    </div>
 
-    </script>
-    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p id="email">EMAIL@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Profession:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p id="Profession">PRO</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Ratings Rate:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p id="rating">00.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Experience</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Expert</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Hourly Rate</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>10$/hr</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Total Projects</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>230</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>English Level</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Expert</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Availability</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>6 months</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Your Bio</label><br/>
+                            <p>Your detail description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        const nameList=this.responseText.split(',');
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("name").innerHTML = nameList[0];
+            document.getElementById("fullName").innerHTML = nameList[1];
+            document.getElementById("Clinic").innerHTML = nameList[2];
+            document.getElementById("email").innerHTML = nameList[3];
+            document.getElementById("Profession").innerHTML = nameList[4];
+            document.getElementById("rating").innerHTML = nameList[5];
+        }
+    };
+    xhttp.open("GET", "/getDocAd", true);
+    xhttp.send();
+
+</script>
+</div>
 </body>
 </html>
