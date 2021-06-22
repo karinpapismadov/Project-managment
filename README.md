@@ -26,8 +26,7 @@ Running process:
 1.	Write the next command line to run the program.
 
 
-![image](https://user-images.githubusercontent.com/57320551/111081373-ac7deb80-850b-11eb-9b46-ce500a642d22.png)
-
+npm run project
 
 2.	Click on the server shown in the terminal window.
 
